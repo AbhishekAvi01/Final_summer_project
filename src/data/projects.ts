@@ -19,9 +19,9 @@ export const projectCategories = [
   { id: 'agentic-ai', name: 'Agentic AI & Generativ AI', icon: '🤖✨' },
   { id: 'fullstack', name: 'Full Stack Development', icon: '🌐' },
   { id: 'machine-learning', name: 'Machine Learning', icon: '🧠' },
-  { id: 'python-scripts', name: 'Python Scripts', icon: '🐍' },
+  { id: 'python-scripts', name: 'Python ,Streamlit & Gradio', icon: '🐍' },
   { id: 'devops-cloud', name: 'DevOps & Cloud Computing', icon: '☁️' },
-  { id: 'linux', name: 'Linux',  }
+  { id: 'linux', name: 'Linux & Git & Githup',  }
 ];
 
 
@@ -1062,7 +1062,188 @@ export const projects: Project[] = [
       'Improves reliability and speed of application delivery'
     ],
     linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_ciabrcd-jenkinspipeline-python-activity-7355808454797598720-epwk?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+  },
+  {
+    id: 'automation-panel-streamlit',
+    title: 'All-in-One Automation Panel using Streamlit',
+    description: 'A multi-task automation panel to send emails, WhatsApp messages, SMS, make calls, and simulate LinkedIn posts.',
+    fullDescription: 'This Streamlit-based automation panel empowers users to perform real-world automation tasks including sending emails via Gmail SMTP, WhatsApp messages via PyWhatKit, SMS and calls via Twilio, and simulated LinkedIn posts. It combines multiple communication tools into a single interactive UI.',
+    techStack: ['Python', 'Streamlit', 'smtplib', 'pywhatkit', 'Twilio'],
+    category: 'python-scripts',
+    githubLink: '',
+    tags: ['Streamlit', 'Automation', 'Email', 'SMS', 'WhatsApp', 'Twilio', 'Python Scripts'],
+    imageUrl: '/thumbnails/automation-panel-streamlit.png',
+    features: [
+      'Send emails using Gmail SMTP',
+      'Schedule WhatsApp messages with PyWhatKit',
+      'Send SMS via Twilio',
+      'Make phone calls using Twilio',
+      'Simulate LinkedIn post creation',
+      'Sidebar UI to switch between tasks'
+    ],
+    challenges: [
+      'Requires third-party credentials (Gmail, Twilio)',
+      'WhatsApp scheduling depends on local time sync and browser session',
+      'LinkedIn post is simulated only (no live API)'
+    ],
+    outcomes: [
+      'Combines real-world automation tasks into one app',
+      'Improves productivity and showcases Streamlit flexibility',
+      'Practical demo for automation and communication tasks'
+    ],
+    linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_python-streamlit-automation-activity-7355836382545649664-8ELj?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+  },
+  {
+    id: 'automation-panel-gradio',
+    title: 'All-in-One Automation Panel using Gradio',
+    description: 'A Gradio-based UI for automating tasks like sending emails, WhatsApp messages, SMS, phone calls, and simulated LinkedIn posts.',
+    fullDescription: 'This project provides a clean Gradio interface that integrates real-world automation utilities such as Gmail email sending, WhatsApp message scheduling with PyWhatKit, Twilio-based SMS and calling, and simulated LinkedIn posting. It helps demonstrate the power of Python in user-friendly automation.',
+    techStack: ['Python', 'Gradio', 'smtplib', 'pywhatkit', 'Twilio'],
+    category: 'python-scripts',
+    githubLink: '',
+    tags: ['Gradio', 'Python Scripts', 'Automation', 'Email', 'SMS', 'Twilio', 'WhatsApp'],
+    imageUrl: '/thumbnails/automation-panel-gradio.png',
+    features: [
+      'Send email via Gmail SMTP',
+      'Schedule WhatsApp messages with PyWhatKit',
+      'Send SMS using Twilio API',
+      'Make phone calls using Twilio',
+      'Simulated LinkedIn post creation',
+      'Tabbed Gradio UI for each task'
+    ],
+    challenges: [
+      'Requires secure handling of credentials (Gmail, Twilio)',
+      'Dependent on third-party services availability',
+      'LinkedIn post is a local simulation'
+    ],
+    outcomes: [
+      'Intuitive UI for automation tasks',
+      'Real-world DevTools integration for messaging and communication',
+      'Flexible interface to enhance productivity and testing automation'
+    ],
+    linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_python-gradio-automationpanel-activity-7355839608972054529-aDwU?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+  },
+  {
+    "id": "community-issue-reporter",
+    "title": "Community Issue Reporter",
+    "description": "A Streamlit-powered voice-enabled platform for reporting and managing community issues efficiently.",
+    "fullDescription": "This application empowers users to report community issues through a clean, accessible UI. It supports voice input using SpeechRecognition, file uploads (images and PDFs), and includes an admin dashboard for tracking issue statuses. The data is dynamically stored in CSV format, making it lightweight and scalable for community use cases.",
+    "techStack": ["Python", "Streamlit", "Pandas", "SpeechRecognition", "CSS"],
+    "category": "python-scripts",
+    "githubLink": "",
+    "tags": ["Streamlit", "Python", "Voice Input", "Dashboard", "CSV", "Community Tool"],
+    "imageUrl": "/thumbnails/community-issue-reporter.png",
+    "features": [
+      "Voice-enabled input for hands-free issue reporting",
+      "Clean, responsive Streamlit UI",
+      "Support for uploading images and PDF files",
+      "Admin dashboard to view and track reports",
+      "Dynamic data storage in CSV format"
+    ],
+    "challenges": [
+      "SpeechRecognition accuracy may vary with accent or noise",
+      "No database integration – CSV handling needs care for scaling",
+      "File upload limitations based on Streamlit defaults"
+    ],
+    "outcomes": [
+      "Enhanced accessibility through voice input",
+      "Streamlined admin-user communication via dashboard",
+      "Practical community use-case for rapid issue collection and tracking"
+    ],
+    "linkedinUrl": "https://www.linkedin.com/posts/abhishek-kumar-329a282b8_python-streamlit-webapp-activity-7342765048114610177-Ay-Q?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q"
+  },
+  {
+    "id": "github-repo-setup-terminal",
+    "title": "GitHub Repository Setup via Terminal",
+    "description": "Create and manage a Git repository using terminal commands, from initialization to pushing code to GitHub.",
+    "fullDescription": "This project demonstrates the step-by-step process of setting up a GitHub repository using the terminal. It includes creating a new folder, initializing a Git repo, adding files, committing with meaningful messages, and pushing to a new remote GitHub repository. It's a fundamental skill for developers to track and manage code efficiently.",
+    "techStack": ["Git", "GitHub", "Terminal", "Windows CMD"],
+    "category": "linux",
+    "githubLink": "",
+    "tags": ["Git", "GitHub", "Terminal", "Command Line", "Version Control", "Linux/Windows"],
+    "imageUrl": "/thumbnails/github-repo-setup-terminal.png",
+    "features": [
+      "Initialize a local Git repository from scratch",
+      "Track files and commit changes with messages",
+      "Set up GitHub remote origin",
+      "Push code from terminal to GitHub",
+      "Basic version control operations"
+    ],
+    "challenges": [
+      "Requires Git to be properly configured (username, email)",
+      "Handling remote conflicts when pushing to GitHub",
+      "Permissions or token-based authentication for remote pushes"
+    ],
+    "outcomes": [
+      "Improved understanding of version control fundamentals",
+      "Hands-on experience with Git command-line operations",
+      "Streamlined code publishing process to GitHub"
+    ],
+    "linkedinUrl": "https://www.linkedin.com/posts/abhishek-kumar-329a282b8_github-cmd-windows-activity-7355832939831590912-fd37?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q"
+  },
+  {
+    "id": "git-branching-merging",
+    "title": "Git Branching and Merging",
+    "description": "Create a feature branch, make changes, and merge it into the main branch without conflicts.",
+    "fullDescription": "This project demonstrates essential Git branching workflows. It includes creating a new branch named `feature1`, making code changes in the branch, and successfully merging it back into the main branch while ensuring no merge conflicts. This practice is crucial in collaborative development and continuous integration environments.",
+    "techStack": ["Git", "GitHub", "Terminal", "Windows CMD"],
+    "category": "linux",
+    "githubLink": "",
+    "tags": ["Git", "Branching", "Merging", "Version Control", "CI/CD", "Conflict Resolution"],
+    "imageUrl": "/thumbnails/git-branching-merging.png",
+    "features": [
+      "Create and switch to new branches",
+      "Modify code independently on feature branches",
+      "Merge branches into main safely",
+      "Handle and avoid merge conflicts",
+      "Use Git effectively for collaborative development"
+    ],
+    "challenges": [
+      "Understanding merge vs rebase",
+      "Managing multiple branches",
+      "Avoiding and resolving merge conflicts"
+    ],
+    "outcomes": [
+      "Hands-on experience with Git branches",
+      "Improved confidence in collaboration using Git",
+      "Clear understanding of merging strategies in Git workflows"
+    ],
+    "linkedinUrl": "https://www.linkedin.com/posts/abhishek-kumar-329a282b8_git-devops-ci-activity-7355833546705358848-7Glf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q"
+  },
+  {
+    "id": "words-to-digits-converter",
+    "title": "Words to Digits Converter",
+    "description": "Convert number words and digits into integer values using a simple Streamlit UI.",
+    "fullDescription": "This web application takes user input in the form of number words (like 'five', 'ten') or numerical digits (like '3') and converts them into their corresponding integer values. Built using Streamlit and Python, the project is aimed at helping beginners understand basic NLP tasks and UI integration. It also features real-time conversion and error handling for a smooth user experience.",
+    "techStack": ["Python", "Streamlit"],
+    "category": "python-scripts",
+    "githubLink": "",
+    "tags": ["Python", "Streamlit", "NLP", "Text to Number", "Beginner Project"],
+    "imageUrl": "/thumbnails/words-to-digits-converter.png",
+    "features": [
+      "Convert number words (e.g., 'ten') to digits (e.g., 10)",
+      "Handles direct numeric inputs",
+      "Real-time output with error handling",
+      "User-friendly Streamlit UI",
+      "Educational tool for beginner NLP tasks"
+    ],
+    "challenges": [
+      "Parsing natural language inputs",
+      "Validating and converting mixed input types",
+      "Handling misspelled or invalid entries"
+    ],
+    "outcomes": [
+      "Reinforced understanding of Python logic and conditionals",
+      "Hands-on experience with Streamlit UI design",
+      "Learned basic NLP input handling techniques"
+    ],
+    "linkedinUrl": "https://www.linkedin.com/posts/abhishek-kumar-329a282b8_linuxworld-vimaldagasir-python-activity-7348249620591882242-atTp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q"
   }
+  
+  
+  
+  
+  
   
   
   
