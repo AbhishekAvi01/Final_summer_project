@@ -2,16 +2,10 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { 
-  Mail, 
-  Phone, 
-  MapPin, 
   Send, 
-  Github, 
-  Linkedin,
   CheckCircle,
   AlertCircle
 } from 'lucide-react';
-import { personalInfo } from '../data/projects';
 
 interface ContactFormData {
   name: string;

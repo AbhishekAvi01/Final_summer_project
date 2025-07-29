@@ -16,6 +16,10 @@ import { useState } from 'react';
 
 const ProjectDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const [showCodeModal, setShowCodeModal] = useState(false);
+  const [codeCopied, setCodeCopied] = useState(false);
+  const [projectCode, setProjectCode] = useState<string | null>(null);
+  
   const project = projects.find(p => p.id === id);
 
   if (!project) {
@@ -45,10 +49,6 @@ const ProjectDetail: React.FC = () => {
     }
   };
 
-  const [showCodeModal, setShowCodeModal] = useState(false);
-  const [codeCopied, setCodeCopied] = useState(false);
-  const [projectCode, setProjectCode] = useState<string | null>(null);
-
   const handleViewCode = async () => {
     // Try to fetch code from a path based on project id (e.g. /code/{project.id}.py)
     try {
@@ -56,7 +56,7 @@ const ProjectDetail: React.FC = () => {
       const code = await res.text();
       setProjectCode(code);
       setShowCodeModal(true);
-    } catch (e) {
+    } catch {
       setProjectCode('# Error loading code');
       setShowCodeModal(true);
     }

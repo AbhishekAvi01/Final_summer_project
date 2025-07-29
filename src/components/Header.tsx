@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Menu, Sun, Moon, Download } from 'lucide-react';
+import { Sun, Moon, Download } from 'lucide-react';
 import { useTheme } from '../contexts/useTheme';
 import { personalInfo } from '../data/projects';
 import ProfileImage from './ProfileImage';
@@ -9,7 +9,7 @@ interface HeaderProps {
   onMenuClick: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
+const Header: React.FC<HeaderProps> = () => {
   const { theme, toggleTheme } = useTheme();
 
   const handleResumeDownload = () => {
