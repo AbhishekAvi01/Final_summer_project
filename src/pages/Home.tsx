@@ -14,6 +14,7 @@ import {
   Zap
 } from 'lucide-react';
 import { personalInfo, projects, projectCategories } from '../data/projects';
+import ProfileImage from '../components/ProfileImage';
 
 const Home: React.FC = () => {
   const containerVariants = {
@@ -56,16 +57,11 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <motion.section variants={itemVariants} className="py-12">
         <div className="relative">
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center"
-          >
-            <span className="text-4xl font-bold text-white">
-              {personalInfo.name.split(' ').map(n => n[0]).join('')}
-            </span>
-          </motion.div>
+          <ProfileImage 
+            imageUrl={personalInfo.profileImage}
+            name={personalInfo.name}
+            size="lg"
+          />
           
           <motion.h1
             variants={itemVariants}

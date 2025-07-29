@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Menu, Sun, Moon, Download } from 'lucide-react';
 import { useTheme } from '../contexts/useTheme';
 import { personalInfo } from '../data/projects';
+import ProfileImage from './ProfileImage';
 
 interface HeaderProps {
   onMenuClick: () => void;
@@ -23,8 +24,13 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
       className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200/20 dark:border-gray-700/20 px-6 py-3 w-full z-50"
     >
       <nav className="flex items-center justify-between w-full">
-        {/* Left: Logo/Name */}
+        {/* Left: Logo/Name with Profile Image */}
         <div className="flex items-center space-x-3">
+          <ProfileImage 
+            imageUrl={personalInfo.profileImage}
+            name={personalInfo.name}
+            size="sm"
+          />
           <span className="text-2xl font-bold gradient-text">{personalInfo.name.split(' ')[0]}</span>
         </div>
 

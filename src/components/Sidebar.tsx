@@ -10,7 +10,8 @@ import {
   ChevronRight,
   X
 } from 'lucide-react';
-import { projectCategories } from '../data/projects';
+import { projectCategories, personalInfo } from '../data/projects';
+import ProfileImage from './ProfileImage';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -52,7 +53,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           {/* Header */}
           <div className="p-6 border-b border-gray-200/20 dark:border-gray-700/20">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-bold gradient-text">Portfolio</h2>
+              <div className="flex items-center space-x-3">
+                <ProfileImage 
+                  imageUrl={personalInfo.profileImage}
+                  name={personalInfo.name}
+                  size="sm"
+                />
+                <h2 className="text-xl font-bold gradient-text">Portfolio</h2>
+              </div>
               <button
                 onClick={onClose}
                 className="lg:hidden p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"

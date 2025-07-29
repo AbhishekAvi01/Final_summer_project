@@ -1086,7 +1086,7 @@ export const projects: Project[] = [
 ];
 
 export const personalInfo = {
-  name: 'Abhishek Kumar',
+  name: 'Abhishek Kumar(32)',
   title: 'Full Stack Developer | DevOps Engineer | Cloud & AI Enthusiast | ML & Agentic AI Developer',
   bio: "I'm a passionate and versatile developer skilled in Full Stack Web Development, DevOps, Cloud Computing, Machine Learning, and cutting-edge technologies like Agentic AI and Generative AI.",
   email: 'abhishekkumar04923@gmail.com',
@@ -1094,6 +1094,7 @@ export const personalInfo = {
   location: 'Jaipur, Rajasthan',
   linkedin: 'https://www.linkedin.com/in/abhishek-kumar-329a282b8',
   github: 'https://github.com/AbhishekAvi01',
+  profileImage: '/profile.jpg', // Your actual profile photo
   skills: [
     'React.js', 'Node.js', 'Python', 'TypeScript', 'MongoDB', 'PostgreSQL',
     'AWS', 'Docker', 'Kubernetes', 'Machine Learning', 'AI/ML', 'DevOps'
