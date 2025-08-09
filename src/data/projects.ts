@@ -28,25 +28,6 @@ export const projectCategories = [
 export const projects: Project[] = [
 
   {
-    id: 'ml-recommendation-system',
-    title: 'ML-Powered Recommendation Engine',
-    description: 'Intelligent recommendation system using collaborative filtering',
-    fullDescription: 'A machine learning recommendation system that uses collaborative filtering and content-based filtering to provide personalized recommendations for users.',
-    techStack: ['Python', 'Scikit-learn', 'Pandas', 'NumPy', 'Flask', 'PostgreSQL'],
-    category: 'machine-learning',
-    githubLink: 'https://github.com/AbhishekAvi01/ml-recommendation',
-    tags: ['Machine Learning', 'Recommendation', 'Data Science'],
-    features: [
-      'Collaborative filtering algorithm',
-      'Content-based recommendations',
-      'Real-time prediction API',
-      'A/B testing framework',
-      'Performance analytics'
-    ],
-    challenges: ['Cold start problem', 'Scalability optimization', 'Real-time processing'],
-    outcomes: ['35% increase in user engagement', '99.9% API uptime', 'Sub-100ms response time']
-  },
-  {
     id: 'ai-startup-pitch-automation',
     title: 'AI-Powered Startup Ideation & Pitch Automation Tool',
     description: 'Refine startup ideas, do market research, generate business model canvas, and auto-create a pitch deck using LangChain + Gemini Pro.',
