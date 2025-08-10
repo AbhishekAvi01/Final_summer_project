@@ -265,6 +265,277 @@ export const projects: Project[] = [
     linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_javascript-webdevelopment-whatsappintegration-activity-7350931726791016449-9nU_?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
   },
   {
+    id: 'fullstack-data-imputation-techniques',
+    title: 'Task 1: Find Different Techniques of Data Imputation',
+    description: 'Explore various methods for handling missing data, from basic statistical approaches to algorithmic strategies.',
+    fullDescription: 'This project involves researching a range of data imputation techniques — such as mean, median, mode imputations, forward/backward fill, K-nearest neighbors, regression imputation, interpolation, and MICE. The goal is to assess their strengths, limitations, and practical applications within full stack development workflows (particularly in pre-deployment data cleaning, API integration, and database handling).',
+    techStack: ['JavaScript', 'Node.js', 'Python', 'Pandas', 'Data Engineering'],
+    category: 'fullstack',
+    githubLink: '',
+    tags: ['Full Stack', 'Data Imputation', 'Data Cleaning', 'Backend Development', 'Data Preprocessing'],
+    imageUrl: '/thumbnails/fullstack-data-imputation.png',
+    features: [
+      'Covers a broad set of imputation methods',
+      'Addresses both simple and advanced imputation strategies',
+      'Focuses on data workflow integration in full stack apps',
+      'Improves reliability of downstream components',
+      'Bridges data preprocessing and system design'
+    ],
+    challenges: [
+      'Balancing ease of use with statistical soundness',
+      'Integrating imputation within full stack pipelines',
+      'Choosing the optimal technique based on data context'
+    ],
+    outcomes: [
+      'Stronger data preprocessing skills',
+      'Cleaner inputs for APIs and databases',
+      'Enhanced reliability of full stack applications'
+    ],
+    linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_fullstackdevelopment-dataimputation-linuxworld-activity-7360199816154353665-ED6G?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+},
+{
+  id: 'javascript-camera-access-photo',
+  title: 'Task 2: How to Access Camera Using JavaScript and Click Photo?',
+  description: 'Implement a web feature to access the device camera via JavaScript and capture a photo.',
+  fullDescription: 'This project demonstrates how to use JavaScript APIs, specifically the MediaDevices.getUserMedia() method, to access a device’s camera. It also covers capturing still images from the video stream and displaying or saving them in a web application. The task is aimed at enhancing front-end skills with media handling and integrating camera features in full stack web development.',
+  techStack: ['JavaScript', 'HTML5', 'CSS3', 'Web APIs'],
+  category: 'fullstack',
+  githubLink: '',
+  tags: ['JavaScript', 'Web Development', 'Camera Access', 'MediaDevices API', 'Full Stack'],
+  imageUrl: '/thumbnails/javascript-camera-access.png',
+  features: [
+    'Access device camera via browser',
+    'Display live video feed on a web page',
+    'Capture still images from the video stream',
+    'Cross-browser support for camera features',
+    'Interactive and user-friendly interface'
+  ],
+  challenges: [
+    'Ensuring permissions and security compliance',
+    'Handling different camera resolutions and orientations',
+    'Providing a smooth and responsive UI for photo capture'
+  ],
+  outcomes: [
+    'Hands-on experience with Web APIs',
+    'Ability to integrate camera features into web apps',
+    'Enhanced user interactivity in full stack projects'
+  ],
+  linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_fullstackdevelopment-javascript-webdevelopment-activity-7360215300442664961-f0Ms?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+},
+{
+  id: 'javascript-camera-live-stream',
+  title: 'Task 3: How to Do Live Stream of Camera Using JavaScript?',
+  description: 'Learn to implement live streaming of a device’s camera feed directly in a web page using JavaScript.',
+  fullDescription: 'This project focuses on using the MediaDevices.getUserMedia() API to stream a device’s camera feed live into a web page. It explores setting up real-time video rendering, handling browser permissions, customizing stream resolution, and integrating the live feed into UI components. This task enhances front-end development skills and prepares developers for use cases like video conferencing, surveillance dashboards, and interactive apps.',
+  techStack: ['JavaScript', 'HTML5', 'CSS3', 'Web APIs'],
+  category: 'fullstack',
+  githubLink: '',
+  tags: ['JavaScript', 'Live Streaming', 'Camera Access', 'MediaDevices API', 'Full Stack'],
+  imageUrl: '/thumbnails/javascript-camera-live-stream.png',
+  features: [
+    'Live video streaming from device camera',
+    'Customizable resolution and frame rate',
+    'Seamless integration into web interfaces',
+    'Responsive design for multiple devices',
+    'Real-time browser-based rendering'
+  ],
+  challenges: [
+    'Managing user permissions for camera access',
+    'Ensuring smooth frame rates without lag',
+    'Handling compatibility across browsers and devices'
+  ],
+  outcomes: [
+    'Proficiency with JavaScript Media APIs',
+    'Ability to integrate live streaming into full stack apps',
+    'Understanding of performance optimization in media rendering'
+  ],
+  linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_fullstackdevelopment-javascript-livestreaming-activity-7360217822221819904-5mzQ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+},
+{
+  id: 'javascript-video-recording-upload',
+  title: 'Task 4: Record a Video Using JavaScript and Automatically Post It',
+  description: 'Implement video recording in the browser using JavaScript and automate the upload process.',
+  fullDescription: 'This project demonstrates how to use JavaScript’s MediaRecorder API to capture video from a user’s camera directly in the browser. It also covers automating the process of posting the recorded video to a server or platform without manual intervention. The task includes handling recording controls, saving video blobs, and implementing a seamless upload pipeline, making it useful for applications like video feedback tools, social media integrations, and online learning platforms.',
+  techStack: ['JavaScript', 'HTML5', 'CSS3', 'MediaRecorder API', 'Fetch API'],
+  category: 'fullstack',
+  githubLink: '',
+  tags: ['JavaScript', 'Video Recording', 'Camera Access', 'MediaRecorder API', 'Full Stack'],
+  imageUrl: '/thumbnails/javascript-video-recording-upload.png',
+  features: [
+    'Record video directly in the browser',
+    'Automated video upload after recording',
+    'Customizable recording controls',
+    'Responsive and mobile-friendly interface',
+    'Works with major modern browsers'
+  ],
+  challenges: [
+    'Managing large video file uploads',
+    'Ensuring browser compatibility for MediaRecorder API',
+    'Handling network errors during automatic posting'
+  ],
+  outcomes: [
+    'Hands-on experience with MediaRecorder and Fetch APIs',
+    'Ability to build video recording and uploading features for web apps',
+    'Understanding of client-server media handling workflows'
+  ],
+  linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_fullstackdevelopment-javascript-videorecording-activity-7360223054385340416-PKhw?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+},
+{
+  id: 'google-name-search-engine',
+  title: 'Task 5: Create a Search Engine from Google Results for a Given Name',
+  description: 'Scrape Google search results for a given name and build a custom search engine from the collected links.',
+  fullDescription: 'This project involves automating the process of searching for a specific name on Google, scraping all the relevant links from the search results, and compiling them into a functional search engine interface. It demonstrates web scraping, data filtering, and frontend integration to present the results in a clean, user-friendly format. The application can be adapted for research, brand monitoring, or creating niche search engines for specific topics.',
+  techStack: ['JavaScript', 'Node.js', 'Puppeteer', 'Express.js', 'HTML5', 'CSS3'],
+  category: 'fullstack',
+  githubLink: '',
+  tags: ['Web Scraping', 'Search Engine', 'Google Search Automation', 'JavaScript', 'Full Stack Development'],
+  imageUrl: '/thumbnails/google-name-search-engine.png',
+  features: [
+    'Automates Google search for any given name',
+    'Scrapes and stores all relevant links',
+    'Custom search engine interface for quick browsing',
+    'Real-time search execution',
+    'User-friendly UI for navigating results'
+  ],
+  challenges: [
+    'Avoiding Google’s anti-bot measures',
+    'Filtering out irrelevant or duplicate links',
+    'Maintaining fast performance during scraping and rendering'
+  ],
+  outcomes: [
+    'Practical understanding of web scraping with Puppeteer',
+    'Experience in building a niche search engine',
+    'Skills in data collection, processing, and presentation'
+  ],
+  linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_fullstackdevelopment-searchengine-webscraping-activity-7360227503434530816-8lFW?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+},
+{
+  id: 'google-apps-script-practice',
+  title: 'Task 6: Practice Google Apps Script and Implement Something New',
+  description: 'Hands-on practice with Google Apps Script by creating and testing a new automation feature.',
+  fullDescription: 'This project focuses on exploring the capabilities of Google Apps Script by writing and experimenting with automation code. The aim was to create something innovative—such as automating document generation, sending scheduled emails, or integrating Google Sheets with external APIs. Through this task, I learned how Google’s scripting platform can enhance productivity by extending and automating Google Workspace applications.',
+  techStack: ['Google Apps Script', 'JavaScript', 'Google Workspace'],
+  category: 'fullstack',
+  githubLink: '',
+  tags: ['Google Apps Script', 'Automation', 'JavaScript', 'Google Workspace'],
+  imageUrl: '/thumbnails/google-apps-script-practice.png',
+  features: [
+    'Explored core syntax and functions of Google Apps Script',
+    'Developed a custom automation workflow',
+    'Tested and debugged scripts in the Google Script Editor',
+    'Integrated with Google Workspace services like Sheets and Docs',
+    'Reusable code for future automation tasks'
+  ],
+  challenges: [
+    'Understanding Google Apps Script’s execution limits and quotas',
+    'Debugging asynchronous operations within the script',
+    'Ensuring compatibility across different Google Workspace apps'
+  ],
+  outcomes: [
+    'Improved skills in automation scripting',
+    'Learned practical integration techniques with Google Workspace',
+    'Developed a functional prototype for productivity enhancement'
+  ],
+  linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_fullstackdevelopment-googleappsscript-automation-activity-7360231634568146945-cDwf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+},
+{
+  id: 'javascript-drag-drop-division',
+  title: 'Task 7: Drag and Drop a Division Using Mouse in JavaScript',
+  description: 'Implemented a drag-and-drop feature for a division element using pure JavaScript and mouse events.',
+  fullDescription: 'This task demonstrates how to create an interactive drag-and-drop functionality in a web page using JavaScript. The project focuses on capturing mouse events like mousedown, mousemove, and mouseup to track and update the position of an HTML division element in real-time. Such functionality is widely used in custom UI components, dashboard widgets, and interactive design tools.',
+  techStack: ['JavaScript', 'HTML', 'CSS'],
+  category: 'fullstack',
+  githubLink: '',
+  tags: ['JavaScript', 'Drag and Drop', 'Frontend', 'UI Interactions'],
+  imageUrl: '/thumbnails/javascript-drag-drop-division.png',
+  features: [
+    'Pure JavaScript implementation without external libraries',
+    'Smooth element dragging with mouse events',
+    'Real-time position updates',
+    'Customizable drag area and styling',
+    'Lightweight and reusable code'
+  ],
+  challenges: [
+    'Handling mouse events efficiently',
+    'Preventing element selection while dragging',
+    'Maintaining smooth drag behavior across browsers'
+  ],
+  outcomes: [
+    'Learned practical DOM event handling',
+    'Created a reusable drag-and-drop component',
+    'Improved understanding of real-time UI interactions'
+  ],
+  linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_fullstackdevelopment-javascript-frontend-activity-7360234628592340992-OGfj?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+},
+{
+  "id": "javascript-chatgpt-connection",
+  "title": "Task 8: Connect JavaScript with ChatGPT and Generate a Response",
+  "description": "Implemented a JavaScript integration with ChatGPT API to send user queries and display generated responses dynamically.",
+  "fullDescription": "This task focuses on connecting a JavaScript frontend with the ChatGPT API to enable interactive conversational features on a webpage. It demonstrates how to handle user input, make asynchronous API calls to ChatGPT, and display the generated responses in real-time. Such integration is useful for building chatbots, AI assistants, and intelligent UI components.",
+  "techStack": ["JavaScript", "HTML", "CSS", "REST API"],
+  "category": "fullstack",
+  "githubLink": "",
+  "tags": ["JavaScript", "ChatGPT", "API Integration", "Frontend", "AI"],
+  "imageUrl": "/thumbnails/javascript-chatgpt-connection.png",
+  "features": [
+    "Seamless ChatGPT API integration using JavaScript fetch",
+    "Real-time response rendering on the web page",
+    "User input handling and validation",
+    "Asynchronous API calls with error handling",
+    "Lightweight and easy to extend"
+  ],
+  "challenges": [
+    "Managing asynchronous API requests",
+    "Handling API rate limits and errors gracefully",
+    "Ensuring secure API key usage",
+    "Updating UI dynamically without reloads"
+  ],
+  "outcomes": [
+    "Improved knowledge of API integration with JavaScript",
+    "Built an interactive chat interface",
+    "Learned to handle asynchronous programming and promises",
+    "Gained experience in working with AI-based services"
+  ],
+  "linkedinUrl": "https://www.linkedin.com/posts/abhishek-kumar-329a282b8_internship-javascript-chatgpt-activity-7360248668525883392-u-qz?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q"
+},
+{
+  "id": "javascript-voice-input-chatgpt",
+  "title": "Task 9: Write a JavaScript Code and Use Your Mic to Give Input Prompt to ChatGPT",
+  "description": "Implemented a JavaScript voice recognition feature that captures user speech through the microphone and sends it as an input prompt to ChatGPT, enabling hands-free interaction.",
+  "fullDescription": "This task demonstrates how to integrate browser-based voice recognition APIs with JavaScript to capture spoken input from the user, convert it into text, and send it to the ChatGPT API for generating a response. The project highlights managing audio input, real-time speech-to-text conversion, and asynchronous API communication for an interactive voice-enabled chatbot experience.",
+  "techStack": ["JavaScript", "HTML", "CSS", "Web Speech API", "REST API"],
+  "category": "fullstack",
+  "githubLink": "",
+  "tags": ["JavaScript", "ChatGPT", "Voice Recognition", "API Integration", "Frontend", "AI"],
+  "imageUrl": "/thumbnails/javascript-voice-input-chatgpt.png",
+  "features": [
+    "Voice input capture using Web Speech API",
+    "Real-time speech-to-text conversion",
+    "Seamless integration with ChatGPT API",
+    "Dynamic rendering of AI-generated responses",
+    "User-friendly voice-controlled chat interface"
+  ],
+  "challenges": [
+    "Handling different browser compatibility for voice recognition",
+    "Managing asynchronous speech recognition and API calls",
+    "Ensuring accurate speech-to-text conversion",
+    "Dealing with noisy environments and misinterpretation",
+    "Maintaining smooth UI updates without lag"
+  ],
+  "outcomes": [
+    "Enhanced understanding of Web Speech API and voice recognition",
+    "Built an innovative voice-based chatbot frontend",
+    "Gained skills in asynchronous JavaScript programming",
+    "Learned to combine voice input with AI-driven responses",
+    "Improved user experience with hands-free interaction"
+  ],
+  "linkedinUrl": "https://www.linkedin.com/posts/abhishek-kumar-329a282b8_internship-javascript-voicerecognition-activity-7360253879684317184-HdsD?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q"
+},
+
+
+
+
+  {
     id: 'docker-linear-regression',
     title: 'Run Linear Regression Model inside Docker',
     description: 'Write and execute a Linear Regression model in Python inside a Docker container.',
