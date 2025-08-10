@@ -707,6 +707,64 @@ export const projects: Project[] = [
     linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_docker-dockerinsidedocker-dind-activity-7351113818753687553-QKo3?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
   },
   {
+  id: 'aws-boto3-ec2-manage',
+  title: 'Launch and Terminate EC2 Instances using Boto3',
+  description: 'Automate the process of launching and terminating EC2 instances with Boto3.',
+  fullDescription: 'Implemented automation scripts using Boto3 to programmatically launch and terminate Amazon EC2 instances, enabling efficient cloud resource management.',
+  techStack: ['AWS', 'Boto3', 'Python'],
+  category: 'devops-cloud',
+  githubLink: '',
+  tags: ['AWS', 'Boto3', 'EC2', 'CloudComputing'],
+  imageUrl: '/thumbnails/aws-boto3-ec2.png',
+  features: [
+    'EC2 instance launch',
+    'Instance termination',
+    'AWS automation'
+  ],
+  challenges: ['AWS permissions', 'Instance state management'],
+  outcomes: ['Learned AWS automation with Boto3', 'Improved cloud resource handling'],
+  linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_aws-boto3-cloudcomputing-activity-7360311390009487360-ld5N?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+},
+{
+  id: 'aws-boto3-cloudwatch-logs',
+  title: 'Access CloudWatch Logs using Boto3',
+  description: 'Create automation scripts to access and manage AWS CloudWatch logs with Boto3.',
+  fullDescription: 'Developed Boto3-based Python scripts to fetch and analyze logs from AWS CloudWatch, enhancing monitoring and troubleshooting capabilities in cloud environments.',
+  techStack: ['AWS', 'Boto3', 'Python', 'CloudWatch'],
+  category: 'devops-cloud',
+  githubLink: '',
+  tags: ['AWS', 'Boto3', 'CloudWatch', 'Logs', 'DevOps'],
+  imageUrl: '/thumbnails/aws-boto3-cloudwatch-logs.png',
+  features: [
+    'CloudWatch logs retrieval',
+    'Log analysis automation',
+    'AWS monitoring'
+  ],
+  challenges: ['Managing large log data', 'AWS IAM permissions'],
+  outcomes: ['Improved cloud monitoring skills', 'Automated log access with Boto3'],
+  linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_create-a-boto3-code-to-access-logs-from-the-cloud-watch'
+},
+{
+  id: 'k8s-live-stream-website',
+  title: 'How to Launch a Live Stream Website on Kubernetes',
+  description: 'Deploy and manage a live streaming website using Kubernetes for scalability and reliability.',
+  fullDescription: 'Learned to deploy a live streaming website on Kubernetes, leveraging container orchestration for high availability and efficient resource management in cloud environments.',
+  techStack: ['Kubernetes', 'Docker', 'Cloud'],
+  category: 'devops-cloud',
+  githubLink: '',
+  tags: ['Kubernetes', 'LiveStreaming', 'CloudComputing', 'DevOps'],
+  imageUrl: '/thumbnails/k8s-live-stream.png',
+  features: [
+    'Live stream deployment',
+    'Kubernetes orchestration',
+    'Scalability and reliability'
+  ],
+  challenges: ['Container networking', 'Load balancing'],
+  outcomes: ['Deployed live stream site on K8s', 'Enhanced cloud deployment skills'],
+  linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_kubernetes-livestreaming-cloudcomputing-activity-7360315489106952192-ohtU?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+},
+
+  {
     "id": "python-send-email",
     "title": "Send an Email using Python",
     "description": "Use Python to send emails effortlessly with built-in libraries or SMTP setup.",
@@ -935,6 +993,26 @@ export const projects: Project[] = [
     ],
     "linkedinUrl": "https://www.linkedin.com/posts/abhishek-kumar-329a282b8_linux-unix-ctrlc-activity-7350922727299465217-IW6f?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q"
   },
+  {
+    id: 'github-fork-pr-contribute',
+    title: 'Fork, Clone, and Create Pull Request on GitHub',
+    description: 'Contribute to open-source projects by forking repositories, making changes, and submitting pull requests.',
+    fullDescription: 'Learned the complete workflow of contributing to open-source projects on GitHub: forking a repo, cloning it locally, applying changes, and creating pull requests to the original repository.',
+    techStack: ['Git', 'GitHub', 'Linux'],
+    category: 'linux',
+    githubLink: '',
+    tags: ['GitHub', 'OpenSource', 'PullRequest', 'Linux'],
+    imageUrl: '/thumbnails/github-fork-pr.png',
+    features: [
+      'Forking GitHub repo',
+      'Local cloning and editing',
+      'Pull request submission'
+    ],
+    challenges: ['Resolving merge conflicts', 'Maintaining clean commit history'],
+    outcomes: ['Open-source contribution skills', 'Git and GitHub workflow mastery'],
+    linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_opensource-github-pullrequest-activity-7360320864040476672-5um0?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+  },
+  
   // Devops and cloud computing
   {
     "id": "aws-case-studies-blog",
