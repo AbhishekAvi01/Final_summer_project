@@ -1017,6 +1017,182 @@ export const projects: Project[] = [
     linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_titanicml-logisticregression-pythonprojects-activity-7355801695072702464-vSxa?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
   },
   {
+    id: 'data-imputation-techniques',
+    title: 'Finding Different Techniques of Data Imputation',
+    description: 'Overview of various methods to handle missing data effectively.',
+    fullDescription: 'This post highlights multiple approaches to data imputation, ranging from simple statistical methods to advanced machine learning techniques. It covers Mean/Median/Mode, Forward/Backward Fill, KNN, Regression, Multiple Imputation, Random Sample, Interpolation, and MICE methods, helping data professionals choose the right approach for their dataset.',
+    techStack: ['Data Science', 'Machine Learning', 'Python', 'Pandas', 'Scikit-learn'],
+    category: 'machine-learning',
+    githubLink: '',
+    tags: ['Data Imputation', 'Machine Learning', 'Missing Data Handling', 'Data Preprocessing'],
+    imageUrl: '/thumbnails/data-imputation-techniques.png',
+    features: [
+      'Explains 8 different imputation methods',
+      'Covers both statistical and ML-based techniques',
+      'Useful for beginners and experienced data scientists',
+      'Applicable to real-world datasets',
+      'Helps in improving model accuracy by handling missing values effectively'
+    ],
+    challenges: [
+      'Choosing the right imputation method for the dataset',
+      'Balancing between simplicity and accuracy',
+      'Avoiding bias due to imputation method'
+    ],
+    outcomes: [
+      'Better understanding of missing data handling',
+      'Enhanced preprocessing skills',
+      'Improved model reliability'
+    ],
+    linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_machinelearning-dataimputation-linuxworld-activity-7360178525229694976-UZFN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+},
+{
+  id: 'dropped-category-weight-analysis',
+  title: 'Find What Happens to the Weight of Dropped Category in Categorical Variable',
+  description: 'Analyze the impact on model interpretation when one category from a categorical variable is dropped during encoding.',
+  fullDescription: 'This project explores the concept of dropping one category from a categorical variable during encoding, commonly done to avoid multicollinearity in regression models. It investigates how the dropped category’s effect is implicitly represented in the model and how to interpret the coefficients of the remaining categories. The study is useful for anyone dealing with feature engineering and categorical data in machine learning.',
+  techStack: ['Python', 'Pandas', 'Scikit-learn', 'Machine Learning'],
+  category: 'machine-learning',
+  githubLink: '',
+  tags: ['Feature Engineering', 'Categorical Encoding', 'Machine Learning', 'Data Science'],
+  imageUrl: '/thumbnails/dropped-category-weight-analysis.png',
+  features: [
+    'Explains why one category is dropped during encoding',
+    'Shows how the dropped category’s weight is interpreted',
+    'Demonstrates with a practical example',
+    'Improves understanding of categorical feature handling',
+    'Helps avoid incorrect interpretation in models'
+  ],
+  challenges: [
+    'Understanding implicit representation of dropped category',
+    'Avoiding confusion in coefficient interpretation',
+    'Ensuring encoding choice does not affect model accuracy'
+  ],
+  outcomes: [
+    'Better understanding of categorical encoding',
+    'Improved feature engineering skills',
+    'More accurate model interpretation'
+  ],
+  linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_machinelearning-featureengineering-datascience-activity-7360182797837254656-Sy2x?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+},
+{
+  id: 'neural-network-initializers-blog',
+  title: 'Task 3: Search About Different Initializers and Their Use Cases & Create a Blog',
+  description: 'A research and writing task exploring various neural network weight initializers and their applications.',
+  fullDescription: 'This project involved studying different types of weight initialization techniques in deep learning, such as Xavier, He, Random Normal, and Uniform Initializers. It explains their mathematical foundations, advantages, disadvantages, and ideal use cases. The insights were compiled into a detailed blog post to help learners understand how initialization impacts training speed, convergence, and overall neural network performance.',
+  techStack: ['Python', 'TensorFlow', 'Keras', 'Deep Learning'],
+  category: 'machine-learning',
+  githubLink: '',
+  tags: ['Deep Learning', 'Neural Networks', 'Weight Initialization', 'AI', 'Machine Learning'],
+  imageUrl: '/thumbnails/neural-network-initializers-blog.png',
+  features: [
+    'Covers multiple initialization techniques',
+    'Explains theory and mathematical intuition',
+    'Provides examples with TensorFlow/Keras',
+    'Highlights use cases for each initializer',
+    'Created an educational blog for learners'
+  ],
+  challenges: [
+    'Understanding the math behind initializers',
+    'Choosing the right initializer for a specific problem',
+    'Communicating technical concepts clearly in a blog format'
+  ],
+  outcomes: [
+    'Deep understanding of weight initialization',
+    'Improved deep learning model performance',
+    'Educational resource for the ML community'
+  ],
+  linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_deeplearning-neuralnetworks-linuxworld-activity-7360188121738625024-1NpM?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+},
+{
+  id: 'llm-api-and-internal-structure-exploration',
+  title: 'Task 4: Find an LLM Model, Explore Its API, and Uncover Its Internal Structure',
+  description: 'Investigate a large language model (LLM), access its API, and analyze its architectural details.',
+  fullDescription: 'This project involves identifying a suitable LLM, obtaining access to its API, and examining its internal architecture—such as model size, layer configuration, attention mechanisms, and training methodology. The goal is to gain insights into how large-scale language models are designed and how they function at a technical level.',
+  techStack: ['Python', 'APIs', 'Deep Learning', 'Transformers', 'Machine Learning'],
+  category: 'machine-learning',
+  githubLink: '',
+  tags: ['LLM', 'API Exploration', 'Model Architecture', 'Deep Learning'],
+  imageUrl: '/thumbnails/llm-api-internal-structure.png',
+  features: [
+    'Selected and accessed an LLM via its API',
+    'Examined model architecture details (e.g. layers, attention heads)',
+    'Analyzed how neural mechanisms affect performance',
+    'Documented findings for others studying LLM internals',
+    'Bridges theory and practical application in real-world models'
+  ],
+  challenges: [
+    'Understanding complex Transformer-based architectures',
+    'Accessing API documentation and authentication',
+    'Interpreting design specifics like layer types and parameter counts'
+  ],
+  outcomes: [
+    'Deepened comprehension of LLM internals',
+    'Hands-on experience with real-world LLM APIs',
+    'Valuable insights for model evaluation and usage'
+  ],
+  linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_ai-machinelearning-llm-activity-7360191900181508097-Y_8S?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+},
+{
+  id: 'optimizer-use-cases-blog',
+  title: 'Task 5: Find the Use Cases of Optimizers & Create a Blog of It',
+  description: 'Research various optimization algorithms used in model training and compile their applications into a blog post.',
+  fullDescription: 'This project explores different optimization algorithms—such as SGD, Adam, RMSprop, and others—and examines their practical applications in deep learning workflows. It investigates when and why each optimizer performs best, infers their strengths and weaknesses, and presents the information in a cohesive blog to aid learners in selecting the right optimizer for their models.',
+  techStack: ['Python', 'TensorFlow', 'Keras', 'Deep Learning', 'Machine Learning'],
+  category: 'machine-learning',
+  githubLink: '',
+  tags: ['Deep Learning', 'Optimizers', 'Machine Learning', 'Blogging', 'Neural Networks'],
+  imageUrl: '/thumbnails/optimizer-use-cases-blog.png',
+  features: [
+    'Reviews commonly-used optimizers (SGD, Adam, RMSprop, etc.)',
+    'Compares performance trade-offs and behaviors',
+    'Includes real-world use case examples',
+    'Distilled into an accessible blog format',
+    'Helps readers choose the right optimizer for their needs'
+  ],
+  challenges: [
+    'Understanding the mathematical nuances of each optimizer',
+    'Explaining trade-offs clearly for different scenarios',
+    'Structuring technical content in an engaging blog format'
+  ],
+  outcomes: [
+    'Clear grasp of optimizer strengths and weaknesses',
+    'Improved writing and teaching skills through blogging',
+    'Valuable resource to guide model tuning decisions'
+  ],
+  linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_machinelearning-deeplearning-linuxworld-activity-7360194150530527232-V3FV?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+},
+{
+  id: 'activation-function-pooling-compatibility',
+  title: 'Task 6: Find Which Activation Function Works with Which Type of Pooling',
+  description: 'Investigate the compatibility between activation functions and pooling layers in convolutional neural networks.',
+  fullDescription: 'This project examines how different activation functions (such as ReLU, Sigmoid, Tanh, Leaky ReLU, etc.) interact with various pooling operations (Max Pooling, Average Pooling, Global Pooling) in CNN architectures. It delves into how these combinations affect features like non-linearity retention, gradient flow, and overall model performance and stability.',
+  techStack: ['Python', 'TensorFlow', 'Keras', 'Deep Learning', 'Convolutional Neural Networks'],
+  category: 'machine-learning',
+  githubLink: '',
+  tags: ['Deep Learning', 'CNN', 'Activation Functions', 'Pooling Layers', 'Machine Learning'],
+  imageUrl: '/thumbnails/activation-pooling-compatibility.png',
+  features: [
+    'Analyzes pairing of activation functions with different pooling layers',
+    'Evaluates impact on feature representation and convergence',
+    'Provides practical examples in CNN architectures',
+    'Helps optimize design of deep learning models',
+    'Enhances understanding of network non-linearities and layer interplay'
+  ],
+  challenges: [
+    'Understanding interplay between activation and pooling layers',
+    'Testing combinations across multiple architectures',
+    'Interpreting which combinations yield optimal training dynamics'
+  ],
+  outcomes: [
+    'Better guidance on choosing activation + pooling pairings',
+    'Improved CNN design and performance tuning',
+    'Deeper insight into model layer interactions'
+  ],
+  linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_deeplearning-cnn-activationfunctions-activity-7360196579699388416-9Nne?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+},
+
+
+  {
     id: 'flask-api-jenkins-cicd',
     title: 'Flask API Deployed with Jenkins CI/CD Pipeline',
     description: 'A Flask-based web API integrated with a Jenkins CI/CD pipeline for automated testing and deployment.',
