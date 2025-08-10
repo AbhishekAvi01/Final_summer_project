@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send WhatsApp Message with JavaScript</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #25d366;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        .whatsapp-icon {
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #25d366;
+        }
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        .phone-input-group {
+            display: flex;
+            gap: 10px;
+        }
+        .country-code {
+            width: 80px;
+            flex-shrink: 0;
+        }
+        .phone-number {
+            flex: 1;
+        }
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        button {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .whatsapp-btn {
+            background: #25d366;
+            color: white;
+        }
+        .whatsapp-btn:hover {
+            background: #1ea952;
+            transform: translateY(-2px);
+        }
+        .web-btn {
+            background: #128c7e;
+            color: white;
+        }
+        .web-btn:hover {
+            background: #0d7269;
+            transform: translateY(-2px);
+        }
+        .clear-btn {
+            background: #6c757d;
+            color: white;
+        }
+        .clear-btn:hover {
+            background: #5a6268;
+        }
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #25d366;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .info-box h3 {
+            margin-top: 0;
+            color: #25d366;
+        }
+        .info-box ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .example {
+            background: #e9f7ef;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: monospace;
+            color: #155724;
+        }
+        .message {
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="whatsapp-icon">💬</div>
+        <h1>WhatsApp Message Sender</h1>
+        
+        <form id="whatsappForm">
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number:</label>
+                <div class="phone-input-group">
+                    <input type="text" class="country-code" id="countryCode" value="+91" placeholder="+91">
+                    <input type="tel" class="phone-number" id="phoneNumber" placeholder="Enter phone number" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" placeholder="Type your WhatsApp message here..." required></textarea>
+            </div>
+            
+            <div class="button-group">
+                <button type="button" class="whatsapp-btn" onclick="sendWhatsAppMessage()">
+                    📱 Send via App
+                </button>
+                <button type="button" class="web-btn" onclick="sendWhatsAppWeb()">
+                    🌐 Send via Web
+                </button>
+                <button type="button" class="clear-btn" onclick="clearForm()">
+                    🗑️ Clear
+                </button>
+            </div>
+        </form>
+        
+        <div id="result"></div>
+        
+        <div class="info-box">
+            <h3>📋 How to Use:</h3>
+            <ul>
+                <li><strong>Phone Number:</strong> Enter the recipient's phone number with country code</li>
+                <li><strong>Send via App:</strong> Opens WhatsApp mobile app (if installed)</li>
+                <li><strong>Send via Web:</strong> Opens WhatsApp Web in browser</li>
+                <li><strong>Message:</strong> Type your message content</li>
+            </ul>
+            
+            <div class="example">
+                <strong>Example:</strong><br>
+                Country Code: +91<br>
+                Phone: 9876543210<br>
+                Message: Hello! How are you?
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <h3>⚠️ Important Notes:</h3>
+            <ul>
+                <li>Phone number must include country code (e.g., +91 for India)</li>
+                <li>Remove any spaces, dashes, or special characters from phone number</li>
+                <li>WhatsApp app method works best on mobile devices</li>
+                <li>Web method works on both desktop and mobile browsers</li>
+                <li>The recipient must have WhatsApp installed</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Send WhatsApp message via app (mobile)
+        function sendWhatsAppMessage() {
+            const countryCode = document.getElementById('countryCode').value.trim();
+            const phoneNumber = document.getElementById('phoneNumber').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            if (!validateInputs(phoneNumber, message)) {
+                return;
+            }
+            
+            // Clean phone number (remove spaces, dashes, etc.)
+            const cleanPhoneNumber = cleanPhoneNumber(countryCode + phoneNumber);
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // WhatsApp app URL scheme
+            const whatsappUrl = `whatsapp://send?phone=${cleanPhoneNumber}&text=${encodedMessage}`;
+            
+            try {
+                // Try to open WhatsApp app
+                window.location.href = whatsappUrl;
+                showMessage('Opening WhatsApp app...', 'success');
+                
+                // Fallback for desktop - open web version after delay
+                setTimeout(() => {
+                    if (document.hasFocus()) {
+                        sendWhatsAppWeb();
+                    }
+                }, 3000);
+                
+            } catch (error) {
+                showMessage('Error opening WhatsApp app. Trying web version...', 'warning');
+                sendWhatsAppWeb();
+            }
+        }
+
+        // Send WhatsApp message via web
+        function sendWhatsAppWeb() {
+            const countryCode = document.getElementById('countryCode').value.trim();
+            const phoneNumber = document.getElementById('phoneNumber').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            if (!validateInputs(phoneNumber, message)) {
+                return;
+            }
+            
+            // Clean phone number
+            const cleanPhoneNumber = cleanPhoneNumber(countryCode + phoneNumber);
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // WhatsApp Web URL
+            const whatsappWebUrl = `https://web.whatsapp.com/send?phone=${cleanPhoneNumber}&text=${encodedMessage}`;
+            
+            try {
+                // Open WhatsApp Web in new tab
+                window.open(whatsappWebUrl, '_blank');
+                showMessage('Opening WhatsApp Web...', 'success');
+            } catch (error) {
+                showMessage('Error opening WhatsApp Web: ' + error.message, 'error');
+            }
+        }
+
+        // Clean phone number (remove non-numeric characters except +)
+        function cleanPhoneNumber(phone) {
+            return phone.replace(/[^\d+]/g, '');
+        }
+
+        // Validate inputs
+        function validateInputs(phoneNumber, message) {
+            if (!phoneNumber) {
+                showMessage('Please enter a phone number!', 'error');
+                return false;
+            }
+            
+            if (!message) {
+                showMessage('Please enter a message!', 'error');
+                return false;
+            }
+            
+            // Basic phone number validation
+            const phoneRegex = /^[\d\s\-\+\(\)]{10,15}$/;
+            if (!phoneRegex.test(phoneNumber)) {
+                showMessage('Please enter a valid phone number (10-15 digits)!', 'error');
+                return false;
+            }
+            
+            return true;
+        }
+
+        // Clear form
+        function clearForm() {
+            document.getElementById('whatsappForm').reset();
+            document.getElementById('countryCode').value = '+91';
+            document.getElementById('result').innerHTML = '';
+        }
+
+        // Show message
+        function showMessage(text, type) {
+            const result = document.getElementById('result');
+            result.innerHTML = `<div class="message ${type}">${text}</div>`;
+        }
+
+        // Auto-format phone number as user types
+        document.getElementById('phoneNumber').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, ''); // Remove non-digits
+            e.target.value = value;
+        });
+
+        // Alternative method using a WhatsApp API service
+        function sendViaAPI() {
+            const phoneNumber = document.getElementById('phoneNumber').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            // Example API call (requires WhatsApp Business API)
+            /*
+            fetch('/api/send-whatsapp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    phone: phoneNumber,
+                    message: message
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showMessage('Message sent successfully!', 'success');
+                } else {
+                    showMessage('Failed to send message: ' + data.error, 'error');
+                }
+            })
+            .catch(error => {
+                showMessage('Error: ' + error.message, 'error');
+            });
+            */
+        }
+    </script>
+</body>
+</html>

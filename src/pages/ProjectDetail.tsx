@@ -50,14 +50,34 @@ const ProjectDetail: React.FC = () => {
   };
 
   const handleViewCode = async () => {
-    // Try to fetch code from a path based on project id (e.g. /code/{project.id}.py)
+    // Determine file extension based on project tech stack
+    const getFileExtension = () => {
+      const techStack = project.techStack.map(tech => tech.toLowerCase());
+      if (techStack.includes('html') || techStack.includes('javascript') || techStack.includes('css')) {
+        return 'html';
+      }
+      return 'py'; // Default to Python
+    };
+
+    const extension = getFileExtension();
+    
     try {
-      const res = await fetch(`/code/${project.id}.py`);
+      const res = await fetch(`/code/${project.id}.${extension}`);
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
       const code = await res.text();
       setProjectCode(code);
       setShowCodeModal(true);
-    } catch {
-      setProjectCode('# Error loading code');
+    } catch (error) {
+      console.error('Error loading code:', error);
+      setProjectCode(`<!-- Error loading code: ${error.message} -->
+/* 
+ * Code file not found for this project.
+ * Expected file: /code/${project.id}.${extension}
+ * 
+ * Please ensure the code file exists in the public/code/ directory.
+ */`);
       setShowCodeModal(true);
     }
   };

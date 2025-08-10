@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Video & Send via Email</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .video-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        video {
+            width: 400px;
+            height: 300px;
+            border: 3px solid #333;
+            border-radius: 8px;
+            margin: 10px;
+            background: #000;
+        }
+        .controls {
+            text-align: center;
+            margin: 20px 0;
+        }
+        button {
+            padding: 12px 25px;
+            margin: 8px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .start-btn {
+            background: #28a745;
+            color: white;
+        }
+        .start-btn:hover {
+            background: #218838;
+        }
+        .record-btn {
+            background: #dc3545;
+            color: white;
+        }
+        .record-btn:hover {
+            background: #c82333;
+        }
+        .stop-btn {
+            background: #6c757d;
+            color: white;
+        }
+        .stop-btn:hover {
+            background: #5a6268;
+        }
+        .download-btn {
+            background: #17a2b8;
+            color: white;
+        }
+        .download-btn:hover {
+            background: #138496;
+        }
+        .email-btn {
+            background: #007bff;
+            color: white;
+        }
+        .email-btn:hover {
+            background: #0056b3;
+        }
+        .email-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: none;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        .status {
+            text-align: center;
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .recording {
+            background: #ffe6e6;
+            color: #d63384;
+            border: 1px solid #f5c2c7;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .video-info {
+            text-align: center;
+            margin: 10px 0;
+            color: #666;
+        }
+        .disabled {
+            opacity: 0.6;
+            cursor: not-allowed !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎥📧 Record Video & Send via Email</h1>
+        
+        <!-- Video Recording Section -->
+        <div class="video-section">
+            <video id="liveVideo" autoplay muted playsinline></video>
+            <video id="recordedVideo" controls style="display: none;"></video>
+            
+            <div class="video-info">
+                <span id="recordingStatus">Click "Start Camera" to begin</span>
+                <span id="recordingTime" style="display: none;">Recording: 00:00</span>
+            </div>
+            
+            <div class="controls">
+                <button class="start-btn" onclick="startCamera()">📹 Start Camera</button>
+                <button class="record-btn" onclick="startRecording()" disabled>🔴 Start Recording</button>
+                <button class="stop-btn" onclick="stopRecording()" disabled>⏹️ Stop Recording</button>
+                <button class="download-btn" onclick="downloadVideo()" disabled>💾 Download Video</button>
+                <button class="email-btn" onclick="showEmailForm()" disabled>📧 Send via Email</button>
+            </div>
+        </div>
+        
+        <!-- Email Form Section -->
+        <div class="email-form" id="emailForm">
+            <h3>📧 Send Video via Email</h3>
+            <form onsubmit="sendEmail(event)">
+                <div class="form-group">
+                    <label for="senderName">Your Name:</label>
+                    <input type="text" id="senderName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="senderEmail">Your Email:</label>
+                    <input type="email" id="senderEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="recipientEmail">Recipient Email:</label>
+                    <input type="email" id="recipientEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="emailSubject">Subject:</label>
+                    <input type="text" id="emailSubject" value="Video Recording" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="emailMessage">Message:</label>
+                    <textarea id="emailMessage" rows="4" placeholder="Here's the video I recorded..."></textarea>
+                </div>
+                
+                <button type="submit" class="email-btn">📧 Send Video via Email</button>
+                <button type="button" class="stop-btn" onclick="hideEmailForm()">❌ Cancel</button>
+            </form>
+        </div>
+        
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+        })();
+
+        let mediaRecorder;
+        let recordedChunks = [];
+        let stream;
+        let recordingTimer;
+        let recordingSeconds = 0;
+        let recordedVideoBlob = null;
+
+        const liveVideo = document.getElementById('liveVideo');
+        const recordedVideo = document.getElementById('recordedVideo');
+        const recordingStatus = document.getElementById('recordingStatus');
+        const recordingTime = document.getElementById('recordingTime');
+
+        // Start camera
+        async function startCamera() {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({ 
+                    video: true, 
+                    audio: true 
+                });
+                liveVideo.srcObject = stream;
+                
+                recordingStatus.textContent = "Camera ready - Click 'Start Recording'";
+                document.querySelector('.record-btn').disabled = false;
+                document.querySelector('.start-btn').textContent = "✅ Camera Started";
+                document.querySelector('.start-btn').disabled = true;
+                
+            } catch (err) {
+                showMessage('Error accessing camera/microphone: ' + err.message, 'error');
+            }
+        }
+
+        // Start recording
+        function startRecording() {
+            recordedChunks = [];
+            recordingSeconds = 0;
+            
+            // Create MediaRecorder
+            mediaRecorder = new MediaRecorder(stream, {
+                mimeType: 'video/webm'
+            });
+            
+            mediaRecorder.ondataavailable = (event) => {
+                if (event.data.size > 0) {
+                    recordedChunks.push(event.data);
+                }
+            };
+            
+            mediaRecorder.onstop = () => {
+                recordedVideoBlob = new Blob(recordedChunks, {
+                    type: 'video/webm'
+                });
+                
+                // Display recorded video
+                const videoUrl = URL.createObjectURL(recordedVideoBlob);
+                recordedVideo.src = videoUrl;
+                recordedVideo.style.display = 'block';
+                liveVideo.style.display = 'none';
+                
+                // Enable buttons
+                document.querySelector('.download-btn').disabled = false;
+                document.querySelector('.email-btn').disabled = false;
+                document.querySelector('.record-btn').disabled = false;
+                document.querySelector('.record-btn').textContent = "🔴 Record Again";
+                
+                recordingStatus.textContent = "Recording completed!";
+                recordingTime.style.display = 'none';
+            };
+            
+            // Start recording
+            mediaRecorder.start();
+            
+            // Update UI
+            document.querySelector('.record-btn').disabled = true;
+            document.querySelector('.stop-btn').disabled = false;
+            recordingStatus.textContent = "";
+            recordingTime.style.display = 'inline';
+            
+            // Start timer
+            recordingTimer = setInterval(updateRecordingTime, 1000);
+            
+            showMessage('Recording started...', 'recording');
+        }
+
+        // Stop recording
+        function stopRecording() {
+            if (mediaRecorder && mediaRecorder.state === 'recording') {
+                mediaRecorder.stop();
+                clearInterval(recordingTimer);
+                
+                // Update UI
+                document.querySelector('.stop-btn').disabled = true;
+                showMessage('Recording stopped! You can now download or email the video.', 'success');
+            }
+        }
+
+        // Update recording timer
+        function updateRecordingTime() {
+            recordingSeconds++;
+            const minutes = Math.floor(recordingSeconds / 60);
+            const seconds = recordingSeconds % 60;
+            recordingTime.textContent = `Recording: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // Download video
+        function downloadVideo() {
+            if (recordedVideoBlob) {
+                const url = URL.createObjectURL(recordedVideoBlob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `recorded-video-${new Date().getTime()}.webm`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                showMessage('Video downloaded successfully!', 'success');
+            }
+        }
+
+        // Show email form
+        function showEmailForm() {
+            if (recordedVideoBlob) {
+                document.getElementById('emailForm').style.display = 'block';
+                document.getElementById('emailForm').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                showMessage('Please record a video first!', 'error');
+            }
+        }
+
+        // Hide email form
+        function hideEmailForm() {
+            document.getElementById('emailForm').style.display = 'none';
+        }
+
+        // Send email with video
+        async function sendEmail(event) {
+            event.preventDefault();
+            
+            if (!recordedVideoBlob) {
+                showMessage('Please record a video first!', 'error');
+                return;
+            }
+
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            try {
+                // Convert video to base64 (Note: Large videos may cause issues)
+                const reader = new FileReader();
+                reader.onloadend = function() {
+                    const base64Video = reader.result;
+                    
+                    // Prepare email data
+                    const templateParams = {
+                        from_name: document.getElementById('senderName').value,
+                        from_email: document.getElementById('senderEmail').value,
+                        to_email: document.getElementById('recipientEmail').value,
+                        subject: document.getElementById('emailSubject').value,
+                        message: document.getElementById('emailMessage').value,
+                        video_attachment: base64Video // Base64 video data
+                    };
+
+                    // Send email using EmailJS
+                    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                        .then(function(response) {
+                            showMessage('✅ Video sent successfully via email!', 'success');
+                            hideEmailForm();
+                            event.target.reset();
+                        })
+                        .catch(function(error) {
+                            showMessage('❌ Failed to send email: ' + error.text, 'error');
+                        })
+                        .finally(function() {
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = '📧 Send Video via Email';
+                        });
+                };
+                
+                reader.readAsDataURL(recordedVideoBlob);
+                
+            } catch (error) {
+                showMessage('❌ Error processing video: ' + error.message, 'error');
+                submitBtn.disabled = false;
+                submitBtn.textContent = '📧 Send Video via Email';
+            }
+        }
+
+        // Show message
+        function showMessage(text, type) {
+            const result = document.getElementById('result');
+            result.innerHTML = `<div class="status ${type}">${text}</div>`;
+        }
+
+        // Reset everything
+        function resetAll() {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+            }
+            
+            liveVideo.style.display = 'block';
+            recordedVideo.style.display = 'none';
+            recordedVideoBlob = null;
+            recordedChunks = [];
+            
+            // Reset buttons
+            document.querySelector('.start-btn').disabled = false;
+            document.querySelector('.start-btn').textContent = "📹 Start Camera";
+            document.querySelector('.record-btn').disabled = true;
+            document.querySelector('.stop-btn').disabled = true;
+            document.querySelector('.download-btn').disabled = true;
+            document.querySelector('.email-btn').disabled = true;
+            
+            recordingStatus.textContent = "Click 'Start Camera' to begin";
+            hideEmailForm();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capture Photo & Send via Email</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .camera-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        video, #capturedImage {
+            width: 320px;
+            height: 240px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            margin: 10px;
+        }
+        canvas {
+            display: none;
+        }
+        .buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+        button {
+            padding: 12px 24px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .camera-btn {
+            background: #28a745;
+            color: white;
+        }
+        .camera-btn:hover {
+            background: #218838;
+        }
+        .email-btn {
+            background: #007bff;
+            color: white;
+        }
+        .email-btn:hover {
+            background: #0056b3;
+        }
+        .email-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        .message {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        #emailSection {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📷📧 Capture Photo & Send via Email</h1>
+        
+        <!-- Camera Section -->
+        <div class="camera-section">
+            <video id="video" autoplay playsinline></video>
+            <canvas id="canvas"></canvas>
+            <img id="capturedImage" alt="Captured Photo" style="display: none;">
+            
+            <div class="buttons">
+                <button class="camera-btn" onclick="startCamera()">📹 Start Camera</button>
+                <button class="camera-btn" onclick="capturePhoto()">📷 Capture Photo</button>
+                <button class="camera-btn" onclick="retakePhoto()">🔄 Retake</button>
+            </div>
+        </div>
+        
+        <!-- Email Section -->
+        <div id="emailSection">
+            <h3>📧 Send Photo via Email</h3>
+            <form class="email-form" onsubmit="sendEmail(event)">
+                <div class="form-group">
+                    <label for="senderName">Your Name:</label>
+                    <input type="text" id="senderName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="senderEmail">Your Email:</label>
+                    <input type="email" id="senderEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="recipientEmail">Recipient Email:</label>
+                    <input type="email" id="recipientEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="emailSubject">Subject:</label>
+                    <input type="text" id="emailSubject" value="Photo from Camera" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="emailMessage">Message:</label>
+                    <textarea id="emailMessage" rows="4" placeholder="Here's a photo I captured..."></textarea>
+                </div>
+                
+                <button type="submit" class="email-btn">📧 Send Photo via Email</button>
+            </form>
+        </div>
+        
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+        })();
+
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const capturedImage = document.getElementById('capturedImage');
+        const emailSection = document.getElementById('emailSection');
+        let capturedPhotoData = null;
+
+        // Start camera
+        function startCamera() {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    video.srcObject = stream;
+                    video.style.display = 'block';
+                    capturedImage.style.display = 'none';
+                })
+                .catch(err => {
+                    showMessage('Error accessing camera: ' + err.message, 'error');
+                });
+        }
+
+        // Capture photo
+        function capturePhoto() {
+            if (video.videoWidth === 0) {
+                showMessage('Please start the camera first!', 'error');
+                return;
+            }
+
+            const context = canvas.getContext('2d');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            
+            // Draw video frame to canvas
+            context.drawImage(video, 0, 0);
+            
+            // Convert to data URL
+            capturedPhotoData = canvas.toDataURL('image/jpeg', 0.8);
+            
+            // Display captured image
+            capturedImage.src = capturedPhotoData;
+            capturedImage.style.display = 'block';
+            video.style.display = 'none';
+            
+            // Show email section
+            emailSection.style.display = 'block';
+            
+            showMessage('Photo captured! Now you can send it via email.', 'success');
+        }
+
+        // Retake photo
+        function retakePhoto() {
+            video.style.display = 'block';
+            capturedImage.style.display = 'none';
+            emailSection.style.display = 'none';
+            capturedPhotoData = null;
+            document.getElementById('result').innerHTML = '';
+        }
+
+        // Send email with photo
+        function sendEmail(event) {
+            event.preventDefault();
+            
+            if (!capturedPhotoData) {
+                showMessage('Please capture a photo first!', 'error');
+                return;
+            }
+
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            // Prepare email data
+            const templateParams = {
+                from_name: document.getElementById('senderName').value,
+                from_email: document.getElementById('senderEmail').value,
+                to_email: document.getElementById('recipientEmail').value,
+                subject: document.getElementById('emailSubject').value,
+                message: document.getElementById('emailMessage').value,
+                photo_attachment: capturedPhotoData // Base64 image data
+            };
+
+            // Send email using EmailJS
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    showMessage('✅ Photo sent successfully via email!', 'success');
+                    // Reset form
+                    event.target.reset();
+                    retakePhoto();
+                })
+                .catch(function(error) {
+                    showMessage('❌ Failed to send email: ' + error.text, 'error');
+                })
+                .finally(function() {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = '📧 Send Photo via Email';
+                });
+        }
+
+        // Show message
+        function showMessage(text, type) {
+            const result = document.getElementById('result');
+            result.innerHTML = `<div class="message ${type}">${text}</div>`;
+        }
+
+        // Alternative: Save photo locally
+        function savePhotoLocally() {
+            if (!capturedPhotoData) {
+                showMessage('No photo to save!', 'error');
+                return;
+            }
+
+            const link = document.createElement('a');
+            link.download = 'captured-photo-' + new Date().getTime() + '.jpg';
+            link.href = capturedPhotoData;
+            link.click();
+        }
+    </script>
+</body>
+</html>
