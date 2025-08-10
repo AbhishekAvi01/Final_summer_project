@@ -531,6 +531,25 @@ export const projects: Project[] = [
   ],
   "linkedinUrl": "https://www.linkedin.com/posts/abhishek-kumar-329a282b8_internship-javascript-voicerecognition-activity-7360253879684317184-HdsD?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q"
 },
+{
+  id: 'js-chatgpt-image-gen',
+  title: 'Generate Image Using ChatGPT Prompt with JavaScript',
+  description: 'Write JavaScript code to generate images dynamically by leveraging ChatGPT prompts.',
+  fullDescription: 'Developed a JavaScript application that uses ChatGPT prompts to generate images programmatically, demonstrating AI integration with frontend technologies.',
+  techStack: ['JavaScript', 'ChatGPT', 'AI'],
+  category: 'fullstack',
+  githubLink: '',
+  tags: ['JavaScript', 'ChatGPT', 'AIIntegration', 'ImageGeneration', 'FullStack'],
+  imageUrl: '/thumbnails/js-chatgpt-image-gen.png',
+  features: [
+    'Dynamic image generation',
+    'ChatGPT prompt integration',
+    'Frontend AI interaction'
+  ],
+  challenges: ['API integration', 'Handling asynchronous calls'],
+  outcomes: ['Enhanced AI and JavaScript skills', 'Practical AI-driven frontend development'],
+  linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_javascript-chatgpt-aiintegration-activity-7360327861225906176--HK7?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+},
 
 
 
@@ -763,6 +782,26 @@ export const projects: Project[] = [
   outcomes: ['Deployed live stream site on K8s', 'Enhanced cloud deployment skills'],
   linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_kubernetes-livestreaming-cloudcomputing-activity-7360315489106952192-ohtU?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
 },
+{
+  id: 'docker-audio-access',
+  title: 'Enable Sound Card Access for Programs Inside Docker',
+  description: 'Learn how to grant audio access to applications running inside Docker containers.',
+  fullDescription: 'Explored and implemented methods to enable sound card access within Docker containers, allowing programs to use audio hardware seamlessly for improved multimedia support.',
+  techStack: ['Docker', 'Linux', 'Audio'],
+  category: 'devops-cloud',
+  githubLink: '',
+  tags: ['Docker', 'Audio', 'Linux', 'DevOps'],
+  imageUrl: '/thumbnails/docker-audio-access.png',
+  features: [
+    'Audio support in Docker',
+    'Sound card access',
+    'Container multimedia enablement'
+  ],
+  challenges: ['Device access permissions', 'Container security'],
+  outcomes: ['Enabled audio in Docker containers', 'Improved container usability for multimedia apps'],
+  linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_docker-rhel9-centosstream-activity-7360330860375457792-_4jl?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+},
+
 
   {
     "id": "python-send-email",
@@ -786,6 +825,26 @@ export const projects: Project[] = [
     ],
     "linkedinUrl": "https://www.linkedin.com/posts/abhishek-kumar-329a282b8_linuxworld-streamlit-python-activity-7349071096442163203-0w-r?utm_source=share&utm_medium=member_android&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q"
   },
+  {
+    id: 'docker-gui-apps',
+    title: 'Run Graphical Software Inside Docker Containers',
+    description: 'Discover how to run and display GUI applications from within Docker containers.',
+    fullDescription: 'Learned techniques to enable running graphical software inside Docker containers, allowing GUI applications to be displayed and interacted with seamlessly from containerized environments.',
+    techStack: ['Docker', 'Linux', 'GUI'],
+    category: 'devops-cloud',
+    githubLink: '',
+    tags: ['Docker', 'GUI', 'Linux', 'Containers'],
+    imageUrl: '/thumbnails/docker-gui-apps.png',
+    features: [
+      'GUI application support',
+      'Docker container integration',
+      'Graphical software deployment'
+    ],
+    challenges: ['X11 forwarding', 'Display server configuration'],
+    outcomes: ['Successfully ran GUI apps in Docker', 'Improved container usability for desktop apps'],
+    linkedinUrl: 'https://www.linkedin.com/posts/abhishek-kumar-329a282b8_docker-rhel9-linux-activity-7360332870709604352-i4tK?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExTkdEB1yN0JUXbHxIFZHAaLmOFDGm0y8Q'
+  },
+  
   {
     "id": "python-send-sms",
     "title": "Send an SMS using Python",
