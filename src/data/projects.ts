@@ -1840,7 +1840,8 @@ export const personalInfo = {
   location: 'Jaipur, Rajasthan',
   linkedin: 'https://www.linkedin.com/in/abhishek-kumar-329a282b8',
   github: 'https://github.com/AbhishekAvi01',
-  profileImage: '/profile.jpg', // Your actual profile photo
+  // profileImage: '/profile.jpg', // Your actual profile photo
+  profileImage: '/prof_pic.jpg', // Your actu
   skills: [
     'React.js', 'Node.js', 'Python', 'TypeScript', 'MongoDB', 'PostgreSQL',
     'AWS', 'Docker', 'Kubernetes', 'Machine Learning', 'AI/ML', 'DevOps'
